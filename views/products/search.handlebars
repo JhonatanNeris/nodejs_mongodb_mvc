@@ -1,0 +1,25 @@
+<h1 class="title">Buscar produto</h1>
+<form method="GET" action="/products/search" class="title searchForm">
+    <div class="form-control-2">
+        <input type="text" name="name" placeholder="Nome do produto">
+        <input type="number" name="minPrice" placeholder="Preço mínimo">
+        <input type="number" name="maxPrice" placeholder="Preço máximo">
+        <button type="submit" class="btn">Buscar</button>
+    </div>    
+</form>
+
+<h1 class="title">Resultado da busca</h1>
+<div class="products">
+    {{#each products}}
+    <div class="product">
+        <img src="{{this.image}}" alt="{{this.name}}">
+        <h3>{{this.name}}</h3>
+        <p>R${{this.price}}</p>
+        <div class="actions">
+            <a class="btn" href="/products/{{this._id}}">Detalhes</a>
+            <a class="btn btn-edit" href="/products/edit/{{this._id}}">Editar</a>
+        </div>
+    </div>
+    {{/each}}
+
+</div>

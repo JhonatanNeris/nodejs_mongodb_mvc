@@ -1,0 +1,22 @@
+<div class="container-sm">
+    <h1>Cadastrar usuário</h1>
+    <form action="/users/register" method="POST" class="form">
+        <div class="form-control">
+            <label for="name">Nome do usuário:</label>
+            <input type="text" name="name" placeholder="Digite o seu nome">
+        </div>
+        <div class="form-control">
+            <label for="email">Email do usuário:</label>
+            <input type="email" name="email" placeholder="Insira um email">
+        </div>
+        <div class="form-control">
+            <label for="password">Senha:</label>
+            <input type="password" name="password" placeholder="Digite uma senha">
+        </div>
+        <div class="form-control">
+            <label for="confirmPassword">Confirme a Senha:</label>
+            <input type="password" name="confirmPassword" placeholder="Confirme sua senha">
+        </div>
+        <input type="submit" value="Cadastar" class="btn btn-success">
+    </form>
+</div>

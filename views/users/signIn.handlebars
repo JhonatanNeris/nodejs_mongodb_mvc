@@ -1,0 +1,50 @@
+<div class="container-sm">
+    <h1>Entrar</h1>
+    <form id="loginForm" action="/users/signin" method="POST" class="form">
+        <div class="form-control">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Digite o seu email">
+        </div>
+        <div class="form-control">
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" placeholder="Insira a sua senha">
+        </div>      
+        <input type="submit" value="Entar" class="btn btn-success">
+    </form>
+    <div style="margin-top: 1rem;">
+        <p>Não possui login? <a href="/users/register">Cadastre-se</a></p>
+    </div>
+</div>
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        try {
+            const response = await fetch('/users/signin', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, password }),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                localStorage.setItem('token', data.token);  // Armazenar o token
+                alert('Login realizado com sucesso!');
+                window.location.href = '/products';  // Redirecionar após login bem-sucedido
+            } else {
+                alert(data.msg || 'Erro ao fazer login');
+            }
+        } catch (error) {
+            console.error('Erro:', error);
+            alert('Erro ao fazer login');
+        }
+    });
+    
+</script>
