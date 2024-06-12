@@ -9,6 +9,9 @@ const app = express()
 
 const conn = require('./db/conn')
 
+//Chamar função para usar o db online 
+conn()
+
 // Usar o cookie-parser
 app.use(cookieParser());
 
