@@ -44,4 +44,9 @@ app.use(express.static(__dirname + '/public'))
 app.use("/products", productsRoutes)
 app.use("/users", usersRoutes)
 
+// Redirecionamento da rota raiz para /products
+app.get('/', (req, res) => {
+    res.redirect('/products');
+});
+
 app.listen(3000)
