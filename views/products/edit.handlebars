@@ -3,7 +3,7 @@
     <input type="hidden" name="id" value="{{product._id}}">
     <div class="form-control">
         <label for="name">Nome do produto:</label>
-        <input type="text" name="name" placeholder="Digite o nome do produto"  value="{{product.name}}">
+        <input type="text" name="name" placeholder="Digite o nome do produto" value="{{product.name}}">
     </div>
     <div class="form-control">
         <label for="image">Imagem do produto:</label>
@@ -19,3 +19,10 @@
     </div>
     <input type="submit" value="Editar" class="btn btn-success">
 </form>
+
+<div class="form-delete">
+    <h1>Deseja excluir o produto ?</h1>
+    <form action="/products/remove/{{product._id}}" method="POST">
+        <input type="submit" value="Excluir" class="btn btn-danger">
+    </form>
+</div>
