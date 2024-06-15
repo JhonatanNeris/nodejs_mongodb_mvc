@@ -35,7 +35,8 @@ app.use(
 app.use(express.json())
 
 //Pasta publica para imagens e CSS
-app.use(express.static('public'))
+// app.use(express.static('public'))
+app.use(express.static(__dirname + '/public'))
 
 app.use("/products", productsRoutes)
 app.use("/users", usersRoutes)
