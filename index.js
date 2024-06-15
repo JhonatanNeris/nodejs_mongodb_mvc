@@ -22,6 +22,9 @@ app.use(getUserByToken)
 const productsRoutes = require('./routes/productsRoutes')
 const usersRoutes = require('./routes/usersRoutes');
 
+//teste
+app.set("views", __dirname + "/views");
+
 app.engine('handlebars', exphbs.engine())
 app.set('view engine', 'handlebars')
 
